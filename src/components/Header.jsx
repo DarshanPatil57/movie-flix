@@ -26,10 +26,12 @@ const Header = () => {
         // User is signed in, see docs for a list of available properties
         const {uid,email,displayName} = user;
         dispatch(addUser({uid:uid,email:email,displayName:displayName}))  
+        navigate("/browse")
 
       } else {
         // User is signed out
         dispatch(removeUser())
+        navigate("/")
         // ...
       }
     });
@@ -39,7 +41,7 @@ const Header = () => {
   [])
 
   return (
-    <div className="absolute z-10 flex justify-between w-full p-4 mx-2">
+    <div className="absolute z-10 flex justify-between w-full p-4  mx-2">
       <h1 className="text-white text-2xl font-bold font-mono">
         Movie-Flix
       </h1>
